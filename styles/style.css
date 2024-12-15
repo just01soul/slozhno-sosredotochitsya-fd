@@ -47,14 +47,14 @@
   --font-weight: 400;
   --line-height: 1.38889;
 
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
   position: absolute;
   justify-self: end;
   padding-inline-end: 9px;
   color: var(--accent-color);
-  font-family: var(--font-family);
-  font-weight: var(--font-weight);
-  font-size: var(--font-size); 
-  line-height: var(--line-height);
   text-transform: uppercase;
   block-size: 52px;
 }
@@ -164,7 +164,7 @@
   color: var(--section_title-color);
   font-family: var(--font-family);
   font-weight: var(--font-weight);
-  font-size: var(--font-size); 
+  font-size: var(--font-size);
   line-height: var(--line-height);
 }
 
