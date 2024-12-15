@@ -9,8 +9,39 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
+  --hover-color: rgba(50, 49, 45, 0.4);
+  --accent-color: #ff8dcb;
+  --title-color: #ffc2e6;
+  --menu-color: #353430;
+  --section_title-color: #353430;
+  --header_list-color: #353430;
+  --text-color: #353430;
+  --background_page-color:#fff1f7;
+  --background_image: url(../images/cover-image-light.png);
 }
 
 .theme-light .page {
   /* Вам также нужно будет написать ряд подобных селекторов */
+}
+
+.theme-light .header__rec {
+  display: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --hover-color: rgba(50, 49, 45, 0.4);
+    --accent-color: #ff8dcb;
+    --title-color: #ffc2e6;
+    --menu-color: #353430;
+    --section_title-color: #353430;
+    --header_list-color: #353430;
+    --text-color: #353430;
+    --background_page-color:#fff1f7;
+    --background_image: url(../images/cover-image-light.png);
+  }
+  
+  .header__rec {
+    display: none;
+  }
 }
