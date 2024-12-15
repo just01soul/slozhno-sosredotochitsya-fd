@@ -11,10 +11,12 @@
 }
 
 .header {
-  min-height: 100vh;
+  grid-template-rows: 1fr min-content 1fr;
+  align-content: center;
+  margin-block-end: 30px;
 }
 
-.header::before {
+.decorated-zone::before {
   content: '';
   position: absolute;
   justify-self: end;
@@ -24,7 +26,7 @@
   border-right: 1px solid var(--menu-color);
 }
 
-.header::after {
+.decorated-zone::after {
   content: '';
   position: absolute;
   justify-self: start;
@@ -36,10 +38,9 @@
 }
 
 .decorated-zone {
+  height: 100vh;
+  min-height: 668px;
   display: grid;
-  grid-template-rows: 1fr min-content 1fr;
-  align-content: center;
-  margin-block-end: 30px;
   padding: 10px;
 }
 
@@ -56,7 +57,6 @@
   padding-inline-end: 9px;
   color: var(--accent-color);
   text-transform: uppercase;
-  block-size: 52px;
 }
 
 .header__rec::after {
@@ -223,72 +223,32 @@
 .list__paragraph_gallery {
   display: grid;
   gap: 10px;
-  padding-block-start: 10px;
-  padding-block-end: 20px;
+  padding: 10px 10px 40px;
 }
 
-.image-sunset {
+.list_gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.image {
   display: block;
   max-width: 100%;
   height: 100%;
   object-fit: fill;
 }
 
-.image-parfait {
-  display: block;
-  max-width: 100%;
-  height: 100%;
+.parfait .image {
   object-fit: cover;
 }
 
-.image-cassette {
-  display: block;
-  max-width: 100%;
-  height: 100%;
+.cassette .image {
   object-fit: cover;
-}
-
-.image-books {
-  display: block;
-  max-width: 100%;
-  height: 100%;
-  object-fit: fill;
-}
-
-.image-street {
-  display: block;
-  max-width: 100%;
-  height: 100%;
-  object-fit: fill;
 }
 
 .footer {
-  display: grid;
   justify-content: center;
   align-content: center;
-  min-height: 100vh;
-  padding: 10px;
-}
-
-.footer::before {
-  content: '';
-  position: absolute;
-  justify-self: end;
-  width: 25px;
-  height: 25px;
-  border-top: 1px solid var(--menu-color);
-  border-right: 1px solid var(--menu-color);
-}
-
-.footer::after {
-  content: '';
-  position: absolute;
-  justify-self: start;
-  align-self: end;
-  width: 25px;
-  height: 25px;
-  border-bottom: 1px solid var(--menu-color);
-  border-left: 1px solid var(--menu-color);
 }
 
 .footer__title {
@@ -303,8 +263,11 @@
 }
 
 @media (width >= 768px) {
-  .decorated-zone {
+  .header {
     margin-block-end: 60px;
+  }
+
+  .decorated-zone {
     padding: 20px;
   }
 
@@ -319,10 +282,9 @@
 
   .why {
     grid-template-columns: 1fr 2fr;
-    padding: 0 20px 60px;
   }
   
-  .what {
+  .section {
     padding: 0 20px 60px;
   }
 
@@ -333,51 +295,51 @@
 
   .how {
     grid-template-columns: 1fr 2fr;
-    padding: 0 20px 40px;
+    grid-template-rows: repeat(2, min-content);
+  }
+
+  .how .section__title {
+    grid-row: 1/-1;
   }
 
   .list__paragraph_gallery {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, min-content);
+    grid-template-rows: repeat(2, min-content);
     grid-auto-flow: dense;
     grid-column: -1/1;
     grid-row: 2;
     gap: 20px;
-    padding-top: 40px;
   }
 
-  .list__paragraph_gallery .list__paragraph-title {
-    grid-column: -1/1;
+  .list_gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    grid-auto-flow: dense;
+    gap: 20px;
+  }
+
+  .sunset {
+    grid-column: 1/3;
     grid-row: 1;
   }
-
-  .image-sunset {
-    grid-column: 1/3;
-    grid-row: 2;
+  
+  .parfait {
+    grid-column: 3;
+    grid-row: 1/3;
   }
   
-  .image-parfait {
-    grid-column: 3;
+  .cassette {
+    grid-column: 1;
     grid-row: 2/4;
   }
   
-  .image-cassette {
-    grid-column: 1;
-    grid-row: 3/5;
-  }
-  
-  .image-books {
+  .books {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 2;
   }
   
-  .image-street {
+  .street {
     grid-column: 2/4;
-    grid-row: 4/5;
-  }
-
-  .footer {
-    padding: 20px;
+    grid-row: 3/4;
   }
 
   .footer__title {
@@ -395,7 +357,6 @@
   .header__theme-menu-list {
     flex-direction: row;
     gap: 10px;
-    margin-top: -1px;
     padding-right: 1px;
   }
 
@@ -417,11 +378,7 @@
   }
 
   .how {
-    grid-template-columns: 1fr 2fr;
-    gap: 10px;
-  }
-
-  .list__paragraph_gallery {
-    padding-top: 50px;
+    column-gap: 10px;
+    row-gap: 20PX;
   }
 }
